@@ -1,20 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoreLogic.Model;
+using CoreLogic.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApp.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
-
+        UserServices userservice;
+        public List<Users> user { get; set; }
         public void OnGet()
         {
-
+            userservice = new UserServices();
+            user = userservice.GetAll();
         }
     }
 }

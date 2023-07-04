@@ -11,6 +11,7 @@ namespace CoreTest
             UserServices userservice=new UserServices();
             var result=userservice.GetAll();
             count=result.Count();
+            
         }
 
         [Test]
