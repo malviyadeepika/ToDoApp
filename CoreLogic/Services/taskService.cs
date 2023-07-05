@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 namespace CoreLogic.Services;
     public class TaskService
     {
-        MyContext ctx;
+        MyContext ctx=new MyContext();
         public List<Model.Task> GetAllTasks()
         {
+            
            return ctx.tasks.ToList();
         }
 

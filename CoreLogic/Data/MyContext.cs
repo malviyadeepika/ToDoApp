@@ -5,7 +5,7 @@ namespace CoreLogic.Data;
     public class MyContext : DbContext
     {
         public DbSet<User> users { get; set; }
-        public DbSet<Model.Task> tasks { get; set; }
+       public DbSet<Model.Task> tasks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
