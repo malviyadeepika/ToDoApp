@@ -9,12 +9,5 @@ using System.Threading.Tasks;
 namespace CoreLogic.Services;
     public class UserServices
     {
-    MyContext ctx;
-       public List<Users> GetAll()
-    {
-        ctx= new MyContext();
-        var result=ctx.users.ToList();
-        return result;
         
-    }
     }
