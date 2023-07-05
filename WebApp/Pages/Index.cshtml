@@ -5,23 +5,32 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Users</h1>
-    <table class="table">
+    <h1 class="display-4">Tasks</h1>
+    <div><a href="./../Pages/Task/Create.cshtml">Create a Task</a></div>
+    <table class="table col-md-4">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>E Mail</th>
+                <th>User</th>
+                <th>Task Name</th>
+                <th></th>
             </tr>
         </thead>
-            @foreach (var u in @Model.user)
+        <tbody>
+            @foreach (var u in @Model.users)
             {
-                <tr>
-                <td>@u.Id</td>
-                <td>@u.Name</td>
-                <td>@u.Email</td>
-                </tr>
-                
+                @foreach (var task in u.Tasks.OrderBy(t => t.Id))
+                {
+                    <tr>
+                        <td>@u.Id</td>
+                        <td>@u.Name</td>
+                        <td>@task.taskName</td>
+                        <td><a href="./../Pages/Task/Update.cshtml">Update</a> |  <a asp-page="./Task/Delete" asp-route-id="@task.Id">Delete</a>
+
+                    </td>
+                    </tr>
+                }
             }
+        </tbody>
     </table>
 </div>
