@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 namespace CoreLogic.Services;
     public class userService
     {
-        MyContext ctx;
+        MyContext ctx= new MyContext();
         public List<Model.User> GetAllUsers()
         {
+              
             return ctx.users.ToList();
         }
 
@@ -31,7 +32,7 @@ namespace CoreLogic.Services;
             }
         }
 
-        public void UpdateTask(User updatedUser)
+        public void UpdateUser(User updatedUser)
         {
             var existingUser = ctx.users.FirstOrDefault(u => u.Id == updatedUser.Id);
             if (existingUser != null)
