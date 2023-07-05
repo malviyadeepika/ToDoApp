@@ -6,13 +6,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace WebApp.Pages
 {
     public class IndexModel : PageModel
-    {
-        userService userservice;
-        public List<User> user { get; set; }
+    { 
+        userService us;
+        public List<User> users { get; set; }
         public void OnGet()
         {
-            userservice = new userService();
-            user = userservice.GetAllUsers();
+            us = new userService();
+            users = us.GetAllUsers();
+            //users = users.OrderBy(u => u.Id).ToList();
         }
     }
 }
