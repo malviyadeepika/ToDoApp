@@ -30,14 +30,29 @@ namespace CoreLogic.Services;
                 ctx.tasks.Remove(taskToRemove);
                 ctx.SaveChanges();
             }
-        }
+        } 
 
-        public void UpdateTask(Model.Task updatedTask)
+        public void updateTask(Model.Task updatedTask)
         {
             var existingTask = ctx.tasks.FirstOrDefault(t => t.Id == updatedTask.Id);
             if (existingTask != null)
             {
                 existingTask.taskName = updatedTask.taskName;
+                ctx.SaveChanges();
+            }
+        }
+
+        public Model.Task getTaskById(int id)
+        {
+            return ctx.tasks.FirstOrDefault(t => t.Id == id);
+        }
+
+        public void deleteTaskById(int id)
+        {
+            var taskToRemove = ctx.tasks.FirstOrDefault(Ta => Ta.Id == id);
+            if (taskToRemove != null)
+            {
+                ctx.tasks.Remove(taskToRemove);
                 ctx.SaveChanges();
             }
         }

@@ -10,10 +10,13 @@ using System.Threading.Tasks;
 namespace CoreLogic.Services;
     public class userService
     {
-        MyContext ctx= new MyContext();
+        MyContext ctx;
+        
+        public userService() { 
+            ctx = new MyContext();
+        }
         public List<Model.User> GetAllUsers()
-        {
-              
+        { 
             return ctx.users.Include(t=>t.Tasks).ToList();
         }
 
@@ -41,6 +44,11 @@ namespace CoreLogic.Services;
                 existingUser.Name = updatedUser.Name;
                 ctx.SaveChanges();
             }
+        }
+
+        public User getUserById(int id)
+        {
+             return ctx.users.FirstOrDefault(u => u.Id == id);
         }
     }
 
