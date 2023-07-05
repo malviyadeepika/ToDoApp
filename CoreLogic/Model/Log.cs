@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CoreLogic.Model;
-    public class Log
+    public class Login
     {
-    public int Id { get; set; }
-    public DateTime Date { get; set; }
-
-    public string Description { get; set; }
+    public string username { get; set; }
+    public string password { get; set; }
 }
