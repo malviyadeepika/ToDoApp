@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace CoreLogic.Services;
     public class LogService
     {
-       List<Log> GetAllLogins()
+       List<Login> GetAllLogins()
     {
-        var result=new List<Log>()
+        var result=new List<Login>()
         {
-            new Log(){},
+            new Login(){},
         };
         return result;
     }
