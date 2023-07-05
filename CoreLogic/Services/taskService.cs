@@ -1,5 +1,6 @@
 ﻿using CoreLogic.Data;
 using CoreLogic.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,13 +35,13 @@ namespace CoreLogic.Services;
 
         public void updateTask(Model.Task updatedTask)
         {
-            var existingTask = ctx.tasks.FirstOrDefault(t => t.Id == updatedTask.Id);
-            if (existingTask != null)
-            {
-                existingTask.taskName = updatedTask.taskName;
-                ctx.SaveChanges();
-            }
+        var existingTask = ctx.tasks.FirstOrDefault(t => t.Id == updatedTask.Id);
+        if (existingTask != null)
+        {
+            existingTask.taskName = updatedTask.taskName;
+            ctx.SaveChanges();
         }
+    }
 
         public Model.Task getTaskById(int id)
         {
