@@ -6,7 +6,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Tasks</h1>
-    <div><a href="./../Pages/Task/Create.cshtml">Create a Task</a></div>
+    <div><a asp-page="./Task/Create">Create</a></div>
     <table class="table col-md-4">
         <thead>
             <tr>
@@ -25,7 +25,8 @@
                         <td>@u.Id</td>
                         <td>@u.Name</td>
                         <td>@task.taskName</td>
-                        <td><a href="./../Pages/Task/Update.cshtml">Update</a> |  <a asp-page="./Task/Delete" asp-route-id="@task.Id">Delete</a>
+                        <td>
+                            <a asp-page="./Task/Update" asp-route-id="@task.Id">Update</a> |  <a asp-page="./Task/Delete" asp-route-id="@task.Id">Delete</a>
 
                     </td>
                     </tr>

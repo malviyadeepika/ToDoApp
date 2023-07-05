@@ -18,8 +18,11 @@ namespace CoreLogic.Services;
 
         public void createTask(Model.Task t)
         {
-            ctx.tasks.Add(t);
-            ctx.SaveChanges();
+            if (t != null)
+            {
+                ctx.tasks.Add(t);
+                ctx.SaveChanges();
+            }
         }
 
         public void deleteTask(Model.Task t)
