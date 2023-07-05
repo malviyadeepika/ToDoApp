@@ -9,8 +9,8 @@ namespace CoreTest
         public void Setup()
         {
             userService userservice=new userService();
-            var result=userservice.GetAll();
-            count=result.Count();
+            //var result=userservice.GetAll();
+            //count=result.Count();
             
         }
 

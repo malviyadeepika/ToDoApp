@@ -12,7 +12,7 @@ namespace WebApp.Pages
         public void OnGet()
         {
             userservice = new userService();
-            user = userservice.GetAll();
+            user = userservice.GetAllUsers();
         }
     }
 }
