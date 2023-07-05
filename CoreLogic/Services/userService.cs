@@ -1,5 +1,6 @@
 ﻿using CoreLogic.Data;
 using CoreLogic.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace CoreLogic.Services;
         public List<Model.User> GetAllUsers()
         {
               
-            return ctx.users.ToList();
+            return ctx.users.Include(t=>t.Tasks).ToList();
         }
 
         public void createUser(User u)

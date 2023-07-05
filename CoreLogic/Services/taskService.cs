@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CoreLogic.Services;
-    public class TaskService
+    public class taskService
     {
         MyContext ctx=new MyContext();
         public List<Model.Task> GetAllTasks()
