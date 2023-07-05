@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CoreLogic.Model;
     public class Task
-    {
-    public string Title{ get; set; }
+    { 
+        public int Id { get; set; }
+        public string taskName { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
 
-
-}
+    }
