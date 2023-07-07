@@ -52,7 +52,7 @@ namespace WebApp.Pages
             return RedirectToPage("/Index");
         }
 
-        private async ValueTask SignInUser()
+        private async System.Threading.Tasks.Task SignInUser()
         {
             var claims = new List<Claim>
         {
