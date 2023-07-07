@@ -1,9 +1,9 @@
-using CoreLogic.Model;
+﻿using CoreLogic.Model;
 using CoreLogic.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebApp.Pages
+namespace WebApp.Pages.Task
 {
     public class IndexModel : PageModel
     {
@@ -13,6 +13,7 @@ namespace WebApp.Pages
         {
             us = new userService();
             users = us.GetAllUsers();
+            //users = users.OrderBy(u => u.Id).ToList();
         }
     }
 }

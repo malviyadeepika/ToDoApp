@@ -9,13 +9,14 @@ namespace WebApp.Pages
 {
     public class RegisterModel : PageModel
     {
-
-
-        public User User;
-
+        [BindProperty]
         public string Name { get; set; }
+        [BindProperty]
         public string Email { get; set; }
+        [BindProperty]
         public string Password { get; set; }
+
+        [BindProperty]
         public string ConfirmPassword { get; set; }
 
 
@@ -41,17 +42,17 @@ namespace WebApp.Pages
             User newUser = new User
             {
                 Name = Name,
-                Password = Password,
-                Email = Email
+                Email = Email,
+                Password = Password, 
             };
             userService.createUser(newUser);
 
             await SignInUser();
 
-            return RedirectToPage("/Products/Index");
+            return RedirectToPage("/Index");
         }
 
-        private async Task SignInUser()
+        private async ValueTask SignInUser()
         {
             var claims = new List<Claim>
         {
