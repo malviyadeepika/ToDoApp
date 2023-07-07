@@ -15,8 +15,8 @@ builder.Services.AddAuthentication("CookieAuth")
     .AddCookie("CookieAuth", config =>
     {
         config.Cookie.Name = "User.Cookie";
-        config.LoginPath = "/Index";
-       // config.LogoutPath = "/Logout";
+        config.LoginPath = "/Login";
+        config.LogoutPath = "/Logout";
     });
 
 var app = builder.Build();

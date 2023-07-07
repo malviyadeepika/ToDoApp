@@ -40,10 +40,10 @@ namespace WebApp.Pages
             // User has provided valid credentials. Proceed with your login process...
             await SignInUser();
 
-            return RedirectToPage("/Products/Index");
+            return RedirectToPage("/Index");
         }
 
-        private async Task SignInUser()
+        private async System.Threading.Tasks.Task SignInUser()
         {
             var claims = new List<Claim>
         {
