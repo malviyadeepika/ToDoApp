@@ -1,0 +1,32 @@
+﻿@page
+@model WebApp.Pages.LoginModel
+@{
+
+}
+
+<h4>Login</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label asp-for="UserName" class="control-label"></label>
+            <input asp-for="UserName" class="form-control" />
+
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" type="password" class="form-control" />
+            <br />
+            <input type="submit" value="Login" class="btn btn-primary" />
+        </form>
+        <a href="/Register">Don't have an account? Register here.</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
