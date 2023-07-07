@@ -1,0 +1,30 @@
+﻿@page
+@model WebApp.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "To Do App";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tasks</h1>
+    <div><a asp-page="./Register">Register</a></div>
+    <table class="table col-md-4">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in @Model.users)
+            {
+                <tr>
+                    <td>@u.Id</td>
+                    <td>@u.Name</td>
+                    <td>@u.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
