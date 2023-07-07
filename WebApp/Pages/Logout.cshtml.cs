@@ -7,6 +7,10 @@ namespace WebApp.Pages;
 
 public class LogoutModel : PageModel
 {
+    public IActionResult OnGet()
+    {
+        return Page();
+    }
     public async Task<IActionResult> OnPostAsync()
     {
         await HttpContext.SignOutAsync("CookieAuth");
