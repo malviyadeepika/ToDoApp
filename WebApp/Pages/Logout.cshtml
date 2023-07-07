@@ -10,7 +10,16 @@
     <div class="col-md-4">
         <form method="post">
             <input type="submit" value="Logout" class="btn btn-danger" />
+            <a asp-page="./Index">Back to List</a>
         </form>
+       
     </div>
+        
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
 
