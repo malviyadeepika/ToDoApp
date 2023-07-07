@@ -50,6 +50,11 @@ namespace CoreLogic.Services;
         {
              return ctx.users.FirstOrDefault(u => u.Id == id);
         }
-    }
+
+        public User getUserByName(string name)
+        {
+            return ctx.users.FirstOrDefault(u => u.Name == name);
+        }
+}
 
 
