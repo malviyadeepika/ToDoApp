@@ -18,5 +18,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background: url("https://img.freepik.com/free-photo/flooring-white-space-scene-desk_1258-259.jpg");
+    margin-bottom: 60px;
+    background-size: cover;
+    background-position: center;
 }
