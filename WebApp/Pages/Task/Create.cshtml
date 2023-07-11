@@ -17,8 +17,6 @@
                 <input asp-for="task.taskName" class="form-control" />
                 <span asp-validation-for="task.taskName" class="text-danger"></span>
             </div>
-
-          
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -35,4 +33,4 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-<h1>Create Your Task</h1>
+

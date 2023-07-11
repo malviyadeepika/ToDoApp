@@ -10,31 +10,30 @@ using CoreLogic.Model;
 using CoreLogic.Services;
 
 
-namespace WebApp.Pages.Working
+namespace WebApp.Pages.Working;  
+
+public class CreateModel : PageModel
 {
-    public class CreateModel : PageModel
-    {
-        [BindProperty]
-        public CoreLogic.Model.Task task { get; set; } = default!;
-        taskService taskservice;
+[BindProperty]
+public CoreLogic.Model.Task task { get; set; } = default!;
+taskService taskservice;
 
-        public CreateModel()
-        {
-            taskservice = new taskService();
-        }
+public CreateModel()
+{
+    taskservice = new taskService();
+}
 
-      
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
 
-        public ActionResult OnPost()
-        {
+public IActionResult OnGet()
+{
+    return Page();
+}
 
-            taskservice.createTask(task);
+public ActionResult OnPost()
+{
 
-            return RedirectToPage("../Index");
-        }
-    }
+    taskservice.createTask(task);
+
+    return RedirectToPage("../Index");
+}
 }

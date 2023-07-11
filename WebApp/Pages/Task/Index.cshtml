@@ -6,7 +6,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Tasks</h1>
-    <div><a asp-page="./Task/Create">Create</a></div>
+    <div><a asp-page="./Task/Create">Create Tasks</a></div>
     <table class="table col-md-4">
         <thead>
             <tr>
@@ -28,7 +28,7 @@
                         <td>
                             <a asp-page="./Task/Update" asp-route-id="@task.Id">Update</a> |  <a asp-page="./Task/Delete" asp-route-id="@task.Id">Delete</a>
 
-                    </td>
+                        </td>
                     </tr>
                 }
             }*@
@@ -46,3 +46,8 @@
         </tbody>
     </table>
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

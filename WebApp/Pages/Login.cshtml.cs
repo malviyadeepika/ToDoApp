@@ -1,8 +1,12 @@
-using CoreLogic.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Security.Claims;
+
+using CoreLogic.Model;
+using CoreLogic.Services;
 
 namespace WebApp.Pages
 {
