@@ -10,14 +10,14 @@
     <table class="table col-md-4">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>User</th>
+                @*<th>Id</th>
+                <th>User</th>*@
                 <th>Task Name</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var u in @Model.users)
+           @* @foreach (var u in @Model.users)
             {
                 @foreach (var task in u.Tasks.OrderBy(t => t.Id))
                 {
@@ -31,6 +31,17 @@
                         </td>
                     </tr>
                 }
+            }*@
+
+            @foreach (var task in @Model.user.Tasks)
+            {
+                <tr>
+                    <td>@task.taskName</td>
+                    <td>
+                        <a asp-page="./Task/Update" asp-route-id="@task.Id">Update</a> |  <a asp-page="./Task/Delete" asp-route-id="@task.Id">Delete</a>
+
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
