@@ -53,7 +53,7 @@ namespace CoreLogic.Services;
 
         public User getUserByName(string name)
         {
-            return ctx.users.FirstOrDefault(u => u.Name == name);
+        return ctx.users.Include(t => t.Tasks).FirstOrDefault(u => u.Name == name);
         }
 }
 
