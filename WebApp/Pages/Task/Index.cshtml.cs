@@ -8,11 +8,15 @@ namespace WebApp.Pages.Task
     public class IndexModel : PageModel
     {
         userService us;
-        public List<User> users { get; set; }
+        public User user { get; set; }
         public void OnGet()
         {
             us = new userService();
-            users = us.GetAllUsers();
+            var name = HttpContext.Session.GetString("LoggedInUserName");
+            user = us.getUserByName(name);
+
+            
+
             //users = users.OrderBy(u => u.Id).ToList();
         }
     }
