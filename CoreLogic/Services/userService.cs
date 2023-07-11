@@ -48,7 +48,7 @@ namespace CoreLogic.Services;
 
         public User getUserById(int id)
         {
-             return ctx.users.FirstOrDefault(u => u.Id == id);
+             return ctx.users.Include(t=>t.Tasks).FirstOrDefault(u => u.Id == id);
         }
 
         public User getUserByName(string name)
