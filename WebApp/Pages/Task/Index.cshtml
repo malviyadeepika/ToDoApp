@@ -1,0 +1,34 @@
+﻿@page
+@model WebApp.Pages.Task.IndexModel
+@{
+    ViewData["Title"] = "To Do App";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tasks</h1>
+    <div><a asp-page="./Create">Create Tasks</a></div>
+    <table class="table col-md-4">
+        <thead>
+            <tr>
+                <th>Task Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in @Model.user.Tasks.OrderBy(t => t.Id))
+            {
+                <tr>
+                    <td>@task.taskName</td>
+                    <td>
+                        <a asp-page="./Update" asp-route-id="@task.Id">Update</a> |  <a asp-page="./Delete" asp-route-id="@task.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

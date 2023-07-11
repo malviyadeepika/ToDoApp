@@ -14,26 +14,35 @@ namespace WebApp.Pages.Working;
 
 public class CreateModel : PageModel
 {
-[BindProperty]
-public CoreLogic.Model.Task task { get; set; } = default!;
-taskService taskservice;
-
-public CreateModel()
-{
-    taskservice = new taskService();
-}
+    [BindProperty]
+    public CoreLogic.Model.Task task { get; set; } = default!;
+    taskService taskservice;
+    userService userservice;
 
 
-public IActionResult OnGet()
-{
-    return Page();
-}
+        public CreateModel()
+            {
+                taskservice = new taskService();
+                userservice = new userService();
+            }
 
-public ActionResult OnPost()
-{
 
-    taskservice.createTask(task);
+    public IActionResult OnGet()
+    {
+        return Page();
+    }
 
-    return RedirectToPage("../Index");
-}
+    public ActionResult OnPost()
+    {
+
+        var name = HttpContext.Session.GetString("LoggedInUserName");
+        var user = userservice.getUserByName(name);
+
+        task.UserId = user.Id;
+
+        taskservice.createTask(task);
+
+
+        return RedirectToPage("./Index");
+    }
 }

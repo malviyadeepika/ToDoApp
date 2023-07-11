@@ -49,7 +49,7 @@ namespace WebApp.Pages
 
             await SignInUser();
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Login");
         }
 
         private async System.Threading.Tasks.Task SignInUser()

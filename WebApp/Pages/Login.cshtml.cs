@@ -44,6 +44,9 @@ namespace WebApp.Pages
             // User has provided valid credentials. Proceed with your login process...
             await SignInUser();
 
+            HttpContext.Session.SetString("LoggedInUserName", user.Name);
+
+
             return RedirectToPage("/Index");
         }
 
