@@ -9,7 +9,9 @@ namespace WebApp.Pages;
 public class IndexModel : PageModel
     {
         userService us;
-        public User user { get; set; }
+
+        [BindProperty]
+        public User user { get; set; } = default!;
         public void OnGet()
         {
             us = new userService();

@@ -19,7 +19,15 @@ builder.Services.AddAuthentication("CookieAuth")
         config.LogoutPath = "/Logout";
     });
 
+builder.Services.AddSession(options =>
+{
+    // Configure session options as needed
+    options.Cookie.Name = "YourSessionCookieName";
+});
+
+
 var app = builder.Build();
+
 
 
 // Configure the HTTP request pipeline.
@@ -37,6 +45,9 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseSession();
+
 
 app.MapRazorPages();
 

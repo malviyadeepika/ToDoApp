@@ -17,14 +17,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var u in @Model.users)
-            {
+           @* @foreach (var u in @Model.users)
+            {*@
                 <tr>
-                    <td>@u.Id</td>
-                    <td>@u.Name</td>
-                    <td>@u.Email</td>
+                    <td>@Model.user.Id</td>
+                    <td>@Model.user.Name</td>
+                    <td>@Model.user.Email</td>
                 </tr>
-            }
+            @*}*@
         </tbody>
     </table>
 </div>
