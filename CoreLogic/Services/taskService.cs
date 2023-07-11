@@ -13,7 +13,6 @@ namespace CoreLogic.Services;
         MyContext ctx=new MyContext();
         public List<Model.Task> GetAllTasks()
         {
-            
            return ctx.tasks.ToList();
         }
 
