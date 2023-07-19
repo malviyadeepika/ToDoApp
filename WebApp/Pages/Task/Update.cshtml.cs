@@ -36,6 +36,6 @@ namespace WebApp.Pages.Working;
 
         taskService.updateTask(Task);
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Index");
     }
 }

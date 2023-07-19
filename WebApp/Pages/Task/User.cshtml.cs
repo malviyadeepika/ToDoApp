@@ -1,17 +1,14 @@
 using CoreLogic.Model;
 using CoreLogic.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebApp.Pages;
-[Authorize]
-public class IndexModel : PageModel
+namespace WebApp.Pages.Task
+{
+    public class IndexModel : PageModel
     {
         userService us;
-
-        [BindProperty]
-        public User user { get; set; } = default!;
+        public User user { get; set; }
         public void OnGet()
         {
             us = new userService();
@@ -19,3 +16,4 @@ public class IndexModel : PageModel
             user = us.getUserByName(name);
         }
     }
+}

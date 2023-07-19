@@ -43,6 +43,6 @@ public class CreateModel : PageModel
         taskservice.createTask(task);
 
 
-        return RedirectToPage("./Index");
+        return RedirectToPage("/Index");
     }
 }

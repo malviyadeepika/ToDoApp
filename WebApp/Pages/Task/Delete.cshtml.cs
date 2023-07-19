@@ -32,7 +32,7 @@ namespace WebApp.Pages.Working
 
             taskService.deleteTaskById(id.Value);
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
     }
 }
