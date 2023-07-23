@@ -13,7 +13,7 @@ namespace CoreLogic.Services;
         MyContext ctx=new MyContext();
         public List<Model.Task> GetAllTasks()
         {
-           var result=ctx.tasks.ToList();
+        var result = ctx.tasks.Include(c => c.Category).ToList();
            return result;  
         }
 
@@ -59,5 +59,10 @@ namespace CoreLogic.Services;
                 ctx.tasks.Remove(taskToRemove);
                 ctx.SaveChanges();
             }
+        }
+        
+        public List<Category>getAllCategories()
+        {
+        return ctx.categories.ToList();
         }
 }
