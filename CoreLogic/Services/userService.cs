@@ -48,12 +48,12 @@ namespace CoreLogic.Services;
 
         public User getUserById(int id)
         {
-             return ctx.users.Include(t=>t.Tasks).FirstOrDefault(u => u.Id == id);
+             return ctx.users.Include(t=>t.Tasks).ThenInclude(t => t.Category).FirstOrDefault(u => u.Id == id);
         }
 
         public User getUserByName(string name)
         {
-        return ctx.users.Include(t => t.Tasks).FirstOrDefault(u => u.Name == name);
+           return ctx.users.Include(t => t.Tasks).ThenInclude(t => t.Category).FirstOrDefault(u => u.Name == name);
         }
 }
 

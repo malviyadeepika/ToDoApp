@@ -7,7 +7,7 @@
 namespace CoreLogic.Migrations
 {
     /// <inheritdoc />
-    public partial class migrationadd : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

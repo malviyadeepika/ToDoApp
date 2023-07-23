@@ -26,7 +26,7 @@ namespace WebApp.Pages
             // Retrieve the user from your database.
             userService UserService = new userService();
             var user = UserService.getUserByName(UserName);
-
+            Console.WriteLine(user);
             if (user == null)
             {
                 // User with the given username doesn't exist.

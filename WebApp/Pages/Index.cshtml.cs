@@ -17,5 +17,6 @@ public class IndexModel : PageModel
         us = new userService();
         var name = HttpContext.Session.GetString("LoggedInUserName");
         user = us.getUserByName(name);
+        Console.WriteLine(user);
     }
 }
