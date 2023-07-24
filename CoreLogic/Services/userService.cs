@@ -59,21 +59,6 @@ namespace CoreLogic.Services;
         {
            return ctx.users.Include(t => t.Tasks).ThenInclude(t => t.Category).FirstOrDefault(u => u.Name == name);
         }
-            return ctx.users.Include(t => t.Tasks).FirstOrDefault(u => u.Name == name);
-       
-        }
-        
-        public User getUserBySearch(string search,string name)
-    {
-        if(string.IsNullOrEmpty(search))
-        {
-            return ctx.users.Include(t => t.Tasks).FirstOrDefault(u => u.Name == name);
-        }
-        var result = ctx.tasks.ToList();
-        var searchelement = result.Where(t => t.taskName.Contains(search)); 
-        u.Tasks = searchelement;
-        return ctx.users.Include(t => t.Tasks).FirstOrDefault(u => u.Name == name);
-    }
 }
 
 

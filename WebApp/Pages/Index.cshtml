@@ -6,7 +6,6 @@
 
 <div class="text-center">
     <h1 class="display-4">Tasks</h1>
-    <div><a asp-page="./Task/Create" class="btn btn-success">Create Tasks</a></div>
        <form method="get">
            <div class="input-group">
                <input class="form-control"asp-for="search"/>
@@ -15,8 +14,8 @@
                </div>
            </div>
        </form>
-    <div>
-        <a asp-page="./Task/Create">Create Tasks</a></div>
+    <div><br />
+        <div><a asp-page="./Task/Create" class="btn btn-success">Create Tasks</a></div>
     <table class="table col-md-4">
         <thead>
             <tr>
@@ -28,23 +27,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var task in @Model.user.Tasks.OrderBy(t => t.Id))
-            {
-                <tr>
-                    <td>@task.taskName</td>
-                    <td>@task.Category?.Name</td>
-                    <td>@task.TaskDate.ToShortDateString()</td>
-                    <td>
-                        <a asp-page="./Task/Update" class="btn btn-primary" asp-route-id="@task.Id">Update</a>  <a asp-page="./Task/Delete" class="btn btn-danger" asp-route-id="@task.Id">Delete</a>
-                    </td>
-                </tr>
-            }
+           
             @if (string.IsNullOrEmpty(@Model.search))
             {
                 @foreach (var task in @Model.user.Tasks.OrderBy(t => t.Id))
                 {
                     <tr>
                         <td>@task.taskName</td>
+                        <td>@task.Category?.Name</td>
+                        <td>@task.TaskDate.ToShortDateString()</td>
                         <td>
                             <a asp-page="./Task/Update" class="btn btn-primary" asp-route-id="@task.Id">Update</a>  <a asp-page="./Task/Delete" class="btn btn-danger" asp-route-id="@task.Id">Delete</a>
                         </td>
@@ -57,10 +48,11 @@
                 {
                     <tr>
                         <td>@task.taskName</td>
+                        <td>@task.Category?.Name</td>
+                        <td>@task.TaskDate.ToShortDateString()</td>
                         <td>
                             <a asp-page="./Task/Update" class="btn btn-primary" asp-route-id="@task.Id">Update</a>  <a asp-page="./Task/Delete" class="btn btn-danger" asp-route-id="@task.Id">Delete</a>
                         </td>
-
                     </tr>
                 }
             }
