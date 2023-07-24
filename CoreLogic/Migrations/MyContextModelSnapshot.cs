@@ -74,9 +74,9 @@ namespace CoreLogic.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-                        
+
                     b.Property<DateTime>("TaskDate")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
