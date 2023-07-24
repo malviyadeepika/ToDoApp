@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreLogic.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20230723102303_initialmigrationadded")]
-    partial class initialmigrationadded
+    [Migration("20230724075616_IntialCreate")]
+    partial class IntialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,9 @@ namespace CoreLogic.Migrations
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("TaskDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");

@@ -12,6 +12,7 @@
             <tr>
                 <th>Task Name</th>
                 <th>Category</th>
+                <th> TaskDate</th>
                 <th>Action</th>
                
             </tr>
@@ -25,7 +26,7 @@
                     <td>
                         <a asp-page="./Task/Update" class="btn btn-primary" asp-route-id="@task.Id">Update</a>  <a asp-page="./Task/Delete" class="btn btn-danger" asp-route-id="@task.Id">Delete</a>
                     </td>
-                    
+                    <td>@task.TaskDate.ToShortDateString()</td>
                 </tr>
             }
         </tbody>

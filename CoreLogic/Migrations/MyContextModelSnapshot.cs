@@ -72,6 +72,9 @@ namespace CoreLogic.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("TaskDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
