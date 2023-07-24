@@ -21,6 +21,11 @@
                 <label class="control-label">Category</label>
                  <select asp-for="task.CategoryId" asp-items="Model.CategoryOptions"class="form-control"></select>
             </div>
+          
+            <div class="form-group">
+                <label asp-for="task.TaskDate">Task Date:</label>
+                <input asp-for=" task.TaskDate" type="date" class="form-control" />
+          </div>
             <div class="form-group">
                 <label asp-for=" task.Description" class="control-label">About</label>
                 <textarea asp-for="task.Description" class="form-control" rows="5"></textarea>

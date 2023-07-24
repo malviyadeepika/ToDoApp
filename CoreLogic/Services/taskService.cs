@@ -11,9 +11,9 @@ namespace CoreLogic.Services;
     public class taskService
     {
         MyContext ctx=new MyContext();
-        public List<Model.Task> GetAllTasks()
+        public IEnumerable<Model.Task> GetAllTasks()
         {
-        var result = ctx.tasks.Include(c => c.Category).ToList();
+           var result = ctx.tasks.Include(c => c.Category).ToList();
            return result;  
         }
 
@@ -42,6 +42,8 @@ namespace CoreLogic.Services;
         if (existingTask != null)
         {
             existingTask.taskName = updatedTask.taskName;
+            existingTask.TaskDate = updatedTask.TaskDate;
+            existingTask.CategoryId = updatedTask.CategoryId;
             ctx.SaveChanges();
         }
     }
@@ -60,9 +62,9 @@ namespace CoreLogic.Services;
                 ctx.SaveChanges();
             }
         }
-        
-        public List<Category>getAllCategories()
-        {
+
+    public List<Category> getAllCategories()
+    {
         return ctx.categories.ToList();
-        }
+    }
 }

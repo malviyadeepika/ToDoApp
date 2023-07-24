@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +12,12 @@ namespace CoreLogic.Services;
     public class userService
     {
         MyContext ctx;
+        User u;
+        taskService ts=new taskService();
         
         public userService() { 
             ctx = new MyContext();
+            u= new User();
         }
         public List<Model.User> GetAllUsers()
         { 
