@@ -16,9 +16,13 @@ namespace WebApp.Pages.Working;
     [BindProperty]
     public CoreLogic.Model.Task Task { get; set; }
     taskService taskService;
+    userService userService;
+    public List<SelectListItem> CategoryOptions { get; set; }
+
     public UpdateModel()
     {
         taskService = new taskService();
+        userService = new userService();
     }
 
     public IActionResult OnGet(int? id)
@@ -26,16 +30,36 @@ namespace WebApp.Pages.Working;
         if (id == null) return NotFound();
 
         Task = taskService.getTaskById(id.Value);
+        var categories = taskService.getAllCategories();
 
+        PopulateCategoriesDropDown();
         return Page();
     }
 
-    public IActionResult OnPost(int? id)
+    public ActionResult OnPost(int? id)
     {
         if (id == null) return NotFound();
 
+        if (!ModelState.IsValid || Task == null)
+        {
+            PopulateCategoriesDropDown();
+            return Page();
+        }
         taskService.updateTask(Task);
 
+
         return RedirectToPage("/Index");
+    }
+
+    private void PopulateCategoriesDropDown()
+    {
+        var categories = taskService.getAllCategories();
+
+        CategoryOptions = categories.Select(category =>
+                                  new SelectListItem
+                                  {
+                                      Value = category.Id.ToString(),
+                                      Text = category.Name
+                                  }).ToList();
     }
 }

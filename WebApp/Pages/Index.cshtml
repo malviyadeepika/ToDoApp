@@ -23,10 +23,10 @@
                 <tr>
                     <td>@task.taskName</td>
                     <td>@task.Category?.Name</td>
+                    <td>@task.TaskDate.ToShortDateString()</td>
                     <td>
                         <a asp-page="./Task/Update" class="btn btn-primary" asp-route-id="@task.Id">Update</a>  <a asp-page="./Task/Delete" class="btn btn-danger" asp-route-id="@task.Id">Delete</a>
                     </td>
-                    <td>@task.TaskDate.ToShortDateString()</td>
                 </tr>
             }
         </tbody>

@@ -16,30 +16,24 @@
                 <label asp-for="Task.taskName" class="control-label"></label>
                 <input asp-for="Task.taskName" class="form-control" />
                 <span asp-validation-for="Task.taskName" class="text-danger"></span>
-               
                 
-    <div class="form-group">
-        <label asp-for="Task.TaskDate">Task Date:</label>
-        <input asp-for=" Task.TaskDate" type="date" class="form-control" />
-        <span asp-validation-for="Task.TaskDate" class="text-danger"></span>
-    </div>
-    
-    </>
-    <div class="form-group">
-        <label asp-for="Task.Category">Category:</label>
-        <input asp-for="Task.Category" class="form-control" />
-        <span asp-validation-for="Task.Category" class="text-danger"></span>
-    </div>
-
-</form>
-
-<br />
+            <div class="form-group">
+                <label asp-for="Task.TaskDate">Task Date:</label>
+                <input asp-for=" Task.TaskDate" type="date" class="form-control" />
+                <span asp-validation-for="Task.TaskDate" class="text-danger"></span>
             </div>
-                <div class="form-group">
+    
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                <select asp-for="Task.CategoryId" asp-items="Model.CategoryOptions" class="form-control"></select>
+            </div>
+
+            <br />
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
 
-</br>
+        </form>
     </div>
 </div>
 

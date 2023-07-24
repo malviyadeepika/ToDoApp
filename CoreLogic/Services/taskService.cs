@@ -42,6 +42,8 @@ namespace CoreLogic.Services;
         if (existingTask != null)
         {
             existingTask.taskName = updatedTask.taskName;
+            existingTask.TaskDate = updatedTask.TaskDate;
+            existingTask.CategoryId = updatedTask.CategoryId;
             ctx.SaveChanges();
         }
     }
