@@ -11,7 +11,7 @@ namespace CoreLogic.Services;
     public class taskService
     {
         MyContext ctx=new MyContext();
-        public List<Model.Task> GetAllTasks()
+        public IEnumerable<Model.Task> GetAllTasks()
         {
            var result=ctx.tasks.ToList();
            return result;  
@@ -60,4 +60,14 @@ namespace CoreLogic.Services;
                 ctx.SaveChanges();
             }
         }
+
+      public IEnumerable<Model.Task> searchTask(string search)
+    {
+        var tasks = ctx.tasks.ToList();
+        if(string.IsNullOrEmpty(search))
+        {
+            return tasks;
+        }
+        return tasks.Where(x => x.taskName.Contains(search));
+    }
 }
