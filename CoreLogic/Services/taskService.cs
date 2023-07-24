@@ -62,7 +62,12 @@ namespace CoreLogic.Services;
                 ctx.SaveChanges();
             }
         }
-<<<<<<< HEAD
+        
+        public List<Category>getAllCategories()
+        {
+        return ctx.categories.ToList();
+        }
+        }
 
       public IEnumerable<Model.Task> searchTask(string search)
     {
@@ -73,11 +78,4 @@ namespace CoreLogic.Services;
         }
         return tasks.Where(x => x.taskName.Contains(search));
     }
-=======
-        
-        public List<Category>getAllCategories()
-        {
-        return ctx.categories.ToList();
-        }
->>>>>>> 12e156eaa20b218ab12a0a0514e0b32d9d5e7e93
 }
