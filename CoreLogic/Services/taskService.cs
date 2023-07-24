@@ -50,7 +50,7 @@ namespace CoreLogic.Services;
 
         public Model.Task getTaskById(int id)
         {
-            return ctx.tasks.FirstOrDefault(t => t.Id == id);
+            return ctx.tasks.Include(c=>c.Category).Single(t => t.Id == id);
         }
 
         public void deleteTaskById(int id)
