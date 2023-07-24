@@ -13,7 +13,7 @@ namespace CoreLogic.Services;
         MyContext ctx=new MyContext();
         public IEnumerable<Model.Task> GetAllTasks()
         {
-           var result=ctx.tasks.ToList();
+        var result = ctx.tasks.Include(c => c.Category).ToList();
            return result;  
         }
 
@@ -42,6 +42,8 @@ namespace CoreLogic.Services;
         if (existingTask != null)
         {
             existingTask.taskName = updatedTask.taskName;
+            existingTask.TaskDate = updatedTask.TaskDate;
+            existingTask.CategoryId = updatedTask.CategoryId;
             ctx.SaveChanges();
         }
     }
@@ -60,6 +62,7 @@ namespace CoreLogic.Services;
                 ctx.SaveChanges();
             }
         }
+<<<<<<< HEAD
 
       public IEnumerable<Model.Task> searchTask(string search)
     {
@@ -70,4 +73,11 @@ namespace CoreLogic.Services;
         }
         return tasks.Where(x => x.taskName.Contains(search));
     }
+=======
+        
+        public List<Category>getAllCategories()
+        {
+        return ctx.categories.ToList();
+        }
+>>>>>>> 12e156eaa20b218ab12a0a0514e0b32d9d5e7e93
 }

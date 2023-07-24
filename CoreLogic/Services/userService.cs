@@ -52,13 +52,17 @@ namespace CoreLogic.Services;
 
         public User getUserById(int id)
         {
-             return ctx.users.Include(t=>t.Tasks).FirstOrDefault(u => u.Id == id);
+             return ctx.users.Include(t=>t.Tasks).ThenInclude(t => t.Category).FirstOrDefault(u => u.Id == id);
         }
 
         public User getUserByName(string name)
         {
+<<<<<<< HEAD
             return ctx.users.Include(t => t.Tasks).FirstOrDefault(u => u.Name == name);
        
+=======
+           return ctx.users.Include(t => t.Tasks).ThenInclude(t => t.Category).FirstOrDefault(u => u.Name == name);
+>>>>>>> 12e156eaa20b218ab12a0a0514e0b32d9d5e7e93
         }
         
         public User getUserBySearch(string search,string name)
