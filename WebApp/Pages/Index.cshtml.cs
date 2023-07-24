@@ -22,13 +22,10 @@ public class IndexModel : PageModel
         us = new userService();
         //taskService=new taskService();
         var name = HttpContext.Session.GetString("LoggedInUserName");
-<<<<<<< HEAD
        user = us.getUserByName(name);
         //user = us.getUserBySearch(name, search);
         
-=======
         user = us.getUserByName(name);
         Console.WriteLine(user);
->>>>>>> 12e156eaa20b218ab12a0a0514e0b32d9d5e7e93
     }
 }
