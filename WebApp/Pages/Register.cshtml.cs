@@ -24,6 +24,10 @@ namespace WebApp.Pages
         {
             userService userService = new userService();
             var existingUser = userService.getUserByName(Name);
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             if (existingUser != null)
             {
