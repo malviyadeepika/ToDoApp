@@ -82,6 +82,7 @@ public class userServiceTest
 
         var user = ctx.users.FirstOrDefault(c => c.Name == "UserTest5");
         int id = user.Id;
+
         var userService = new userService();
         userService.deleteUser(id);
 
